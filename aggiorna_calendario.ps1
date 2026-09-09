@@ -1,8 +1,7 @@
 ﻿# ==============================================================================
-# Script per aggiornare il calendario partite (Serie A, UCL, UEL) con emittenti TV
+# Script Ibrido: CalcioInTV (Primario per Emittenti) + TheSportsDB (Arbitro Orari)
 # Formato output personalizzato:
 # Number,Planned Start Date,Planned End Date,Short Description,State,Type,Impatto,Note
-# Mantiene lo storico delle partite passate e unisce i nuovi aggiornamenti
 # ==============================================================================
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -22,7 +21,6 @@ if (Test-Path $csvPath) {
         $existing = Import-Csv -Path $csvPath -Delimiter $del -Encoding UTF8
         
         foreach ($row in $existing) {
-            # Compatibilità con sia vecchio che nuovo schema
             $comp = if ($row.Number) { $row.Number } else { $row.Competizione }
             $match = if ($row.'Short Description') { $row.'Short Description' } else { $row.Partita }
             $start = $row.'Planned Start Date'
@@ -37,7 +35,7 @@ if (Test-Path $csvPath) {
                 
                 $dtSort = [datetime]::MinValue
                 if ($start -and [datetime]::TryParseExact($start, "dd/MM/yyyy HH:mm", [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$dtSort)) {
-                    # Parsed successfully
+                    # parsed
                 }
                 
                 $masterMatches[$key] = [PSCustomObject]@{
@@ -59,7 +57,37 @@ if (Test-Path $csvPath) {
     }
 }
 
-# 2. Scarica i dati aggiornati dalle competizioni
+# 2. Scarica i dati aggiornati da TheSportsDB per convalidare date e orari ufficiali
+Write-Host "Interrogazione TheSportsDB per orari e date ufficiali..." -ForegroundColor Cyan
+$officialLookup = @{}
+$romeZone = [TimeZoneInfo]::FindSystemTimeZoneById("W. Europe Standard Time")
+
+# Interroghiamo i turni imminenti di Serie A (es. giornate 4..12)
+foreach ($r in 4..12) {
+    $u = "https://www.thesportsdb.com/api/v1/json/3/eventsround.php?id=4332&r=$r&s=2026-2027"
+    try {
+        $respRound = (Invoke-RestMethod -Uri $u -TimeoutSec 5).events
+        if ($respRound) {
+            foreach ($ev in $respRound) {
+                if ($ev.dateEvent -and $ev.strTime -and $ev.strTime -ne "00:00:00") {
+                    $t1 = $ev.strHomeTeam -replace '\bAC Milan\b', 'Milan' -replace '\bInter Milan\b', 'Inter'
+                    $t2 = $ev.strAwayTeam -replace '\bAC Milan\b', 'Milan' -replace '\bInter Milan\b', 'Inter'
+                    $pair = "$t1 - $t2"
+                    
+                    try {
+                        $utcStr = "$($ev.dateEvent) $($ev.strTime)"
+                        $utcDt = [datetime]::ParseExact($utcStr, "yyyy-MM-dd HH:mm:ss", [System.Globalization.CultureInfo]::InvariantCulture)
+                        $localDt = [TimeZoneInfo]::ConvertTimeFromUtc($utcDt, $romeZone)
+                        $officialLookup["Serie A|$pair"] = $localDt
+                    } catch {}
+                }
+            }
+        }
+    } catch {}
+}
+Write-Host "Mappate $($officialLookup.Count) partite ufficiali da TheSportsDB per la convalida." -ForegroundColor Green
+
+# 3. Scarica i dati primari da CalcioInTV (Emittenti TV e calendario completo)
 $competitions = @(
     @{ OrigName = "Serie A"; ShortName = "Serie A"; Url = "https://www.calciointv.com/indexfi.php?comp=Serie%20A" },
     @{ OrigName = "Champions League"; ShortName = "UCL"; Url = "https://www.calciointv.com/indexfi.php?comp=Champions%20League" },
@@ -67,9 +95,10 @@ $competitions = @(
 )
 
 $scrapedCount = 0
+$correctedCount = 0
 
 foreach ($comp in $competitions) {
-    Write-Host "Scaricamento $($comp.ShortName)..." -ForegroundColor Cyan
+    Write-Host "Scaricamento $($comp.ShortName) da CalcioInTV..." -ForegroundColor Cyan
     try {
         $bytes = $wc.DownloadData($comp.Url)
         $html = [System.Text.Encoding]::UTF8.GetString($bytes)
@@ -95,15 +124,26 @@ foreach ($comp in $competitions) {
             $min = [int]$mDate.Groups[5].Value
             
             $dtStart = [datetime]::new($year, $month, $day, $hour, $min, 0)
-            $dtEnd = $dtStart.AddHours(2)
-            
             $rawMatch = [System.Net.WebUtility]::HtmlDecode($mText.Groups[1].Value.Trim())
             $rawTv = if ($mTv.Success) { [System.Net.WebUtility]::HtmlDecode($mTv.Groups[1].Value.Trim()) } else { "Da definire" }
             
             # Normalizzazione nomi squadre
             $matchClean = $rawMatch -replace '\bInter Milan\b', 'Inter' -replace '\bAC Milan\b', 'Milan'
+            $key = "$($comp.ShortName)|$matchClean"
             
-            # Logica emittente
+            # Controllo e riconciliazione con TheSportsDB
+            if ($officialLookup.ContainsKey($key)) {
+                $officialDt = $officialLookup[$key]
+                if ($officialDt -ne $dtStart) {
+                    # Orario ufficiale trovato e diverso dal segnaposto
+                    $dtStart = $officialDt
+                    $correctedCount++
+                }
+            }
+            
+            $dtEnd = $dtStart.AddHours(2)
+            
+            # Logica emittente da CalcioInTV (primaria)
             $emittente = "Da definire"
             if ($comp.ShortName -eq "Serie A") {
                 if ($rawTv -match "DAZN" -and ($rawTv -match "Sky" -or $rawTv -match "NOW")) {
@@ -127,14 +167,10 @@ foreach ($comp in $competitions) {
                 }
             }
             
-            $key = "$($comp.ShortName)|$matchClean"
-            
-            # Preserva eventuali campi già popolati nello storico
             $existingState = if ($masterMatches.ContainsKey($key)) { $masterMatches[$key].State } else { "" }
             $existingType = if ($masterMatches.ContainsKey($key)) { $masterMatches[$key].Type } else { "" }
             $existingImpatto = if ($masterMatches.ContainsKey($key)) { $masterMatches[$key].Impatto } else { "" }
             
-            # Aggiorna o aggiunge nel master dictionary
             $masterMatches[$key] = [PSCustomObject]@{
                 Number = $comp.ShortName
                 PlannedStartDate = $dtStart.ToString("dd/MM/yyyy HH:mm")
@@ -151,10 +187,10 @@ foreach ($comp in $competitions) {
     }
 }
 
-# 3. Ordinamento cronologico complessivo
+# 4. Ordinamento cronologico complessivo
 $sorted = $masterMatches.Values | Sort-Object SortDate
 
-# 4. Generazione righe CSV secondo il nuovo schema
+# 5. Generazione righe CSV secondo il formato template
 $csvLines = [System.Collections.Generic.List[string]]::new()
 $csvLines.Add("Number,Planned Start Date,Planned End Date,Short Description,State,Type,Impatto,Note")
 
@@ -170,11 +206,12 @@ foreach ($m in $sorted) {
     $csvLines.Add($line)
 }
 
-# 5. Salvataggio con UTF-8 BOM
+# 6. Salvataggio con UTF-8 BOM
 $utf8Bom = New-Object System.Text.UTF8Encoding($true)
 [System.IO.File]::WriteAllLines($csvPath, $csvLines, $utf8Bom)
 
 Write-Host "Aggiornamento completato con successo!" -ForegroundColor Green
-Write-Host "Partite scaricate in questo ciclo: $scrapedCount"
-Write-Host "Totale partite mantenute (incluso storico): $($sorted.Count)"
+Write-Host "Partite scaricate: $scrapedCount"
+Write-Host "Date/Orari corretti da TheSportsDB: $correctedCount"
+Write-Host "Totale partite mantenute nel CSV: $($sorted.Count)"
 Write-Host "File salvato in: $csvPath"
