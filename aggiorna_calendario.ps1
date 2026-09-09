@@ -1,20 +1,67 @@
 ﻿# ==============================================================================
 # Script per aggiornare il calendario partite (Serie A, UCL, UEL) con emittenti TV
-# Genera il file calendario_partite.csv formattato per Excel (UTF-8 con BOM, delimitatore ;)
+# Mantiene lo storico delle partite passate e unisce i nuovi aggiornamenti
+# Output CSV: Delimitatore ",", Competizione come prima colonna, UTF-8 BOM
 # ==============================================================================
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $wc = New-Object System.Net.WebClient
 $wc.Encoding = [System.Text.Encoding]::UTF8
 
+$baseDir = if ($PSScriptRoot) { $PSScriptRoot } else { Get-Location }
+$csvPath = Join-Path $baseDir "calendario_partite.csv"
+
+# 1. Carica lo storico esistente (se presente)
+$masterMatches = [System.Collections.Generic.Dictionary[string, PSCustomObject]]::new()
+
+if (Test-Path $csvPath) {
+    try {
+        $firstLine = (Get-Content $csvPath -First 1)
+        $del = if ($firstLine -match ";") { ";" } else { "," }
+        $existing = Import-Csv -Path $csvPath -Delimiter $del -Encoding UTF8
+        
+        foreach ($row in $existing) {
+            $comp = $row.Competizione
+            $match = $row.Partita
+            $start = $row.'Planned Start Date'
+            $end = $row.'Planned End Date'
+            $emittente = $row.Emittente
+            $stato = $row.Stato_Programmazione
+            
+            if ($comp -and $match) {
+                $key = "$comp|$match"
+                
+                # Parse datetime per ordinamento
+                $dtSort = [datetime]::MinValue
+                if ($start -and [datetime]::TryParseExact($start, "dd/MM/yyyy HH:mm", [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$dtSort)) {
+                    # Parsed successfully
+                }
+                
+                $masterMatches[$key] = [PSCustomObject]@{
+                    Competizione = $comp
+                    PlannedStartDate = $start
+                    PlannedEndDate = $end
+                    Partita = $match
+                    Emittente = $emittente
+                    Stato_Programmazione = $stato
+                    SortDate = $dtSort
+                }
+            }
+        }
+        Write-Host "Caricate $($masterMatches.Count) partite dallo storico esistente." -ForegroundColor Cyan
+    } catch {
+        Write-Warning "Avviso nella lettura dello storico esistente: $_"
+    }
+}
+
+# 2. Scarica i dati aggiornati dalle competizioni
 $competitions = @(
     @{ OrigName = "Serie A"; ShortName = "Serie A"; Url = "https://www.calciointv.com/indexfi.php?comp=Serie%20A" },
     @{ OrigName = "Champions League"; ShortName = "UCL"; Url = "https://www.calciointv.com/indexfi.php?comp=Champions%20League" },
     @{ OrigName = "Europa League"; ShortName = "UEL"; Url = "https://www.calciointv.com/indexfi.php?comp=Europa%20League" }
 )
 
-$allMatches = [System.Collections.Generic.List[PSCustomObject]]::new()
-$seenKeys = [System.Collections.Generic.HashSet[string]]::new()
+$scrapedCount = 0
 
 foreach ($comp in $competitions) {
     Write-Host "Scaricamento $($comp.ShortName)..." -ForegroundColor Cyan
@@ -48,15 +95,10 @@ foreach ($comp in $competitions) {
             $rawMatch = [System.Net.WebUtility]::HtmlDecode($mText.Groups[1].Value.Trim())
             $rawTv = if ($mTv.Success) { [System.Net.WebUtility]::HtmlDecode($mTv.Groups[1].Value.Trim()) } else { "Da definire" }
             
-            # Normalizzazione nomi squadre per la Serie A (e coppe)
+            # Normalizzazione nomi squadre
             $matchClean = $rawMatch -replace '\bInter Milan\b', 'Inter' -replace '\bAC Milan\b', 'Milan'
             
-            # Chiave univoca per evitare duplicati desktop/mobile
-            $key = "$year$month$day-$hour$min-$matchClean"
-            if ($seenKeys.Contains($key)) { continue }
-            $seenKeys.Add($key) | Out-Null
-            
-            # Logica assegnazione emittente
+            # Logica emittente
             $emittente = "Da definire"
             if ($comp.ShortName -eq "Serie A") {
                 if ($rawTv -match "DAZN" -and ($rawTv -match "Sky" -or $rawTv -match "NOW")) {
@@ -69,15 +111,10 @@ foreach ($comp in $competitions) {
                     $emittente = "DAZN"
                 }
             } else {
-                # UCL e UEL
                 if ($rawTv -match "Prime Video") {
                     $emittente = "Amazon Prime Video"
                 } elseif ($rawTv -match "Sky" -or $rawTv -match "NOW") {
-                    if ($rawTv -match "TV8") {
-                        $emittente = "Sky / TV8"
-                    } else {
-                        $emittente = "Sky"
-                    }
+                    if ($rawTv -match "TV8") { $emittente = "Sky / TV8" } else { $emittente = "Sky" }
                 } elseif ($rawTv -match "TV8") {
                     $emittente = "TV8"
                 } else {
@@ -85,39 +122,46 @@ foreach ($comp in $competitions) {
                 }
             }
             
-            $allMatches.Add([PSCustomObject]@{
+            $stato = if ($hour -eq 1 -or $hour -eq 0) { "Orario da definire" } else { "Confermato" }
+            $key = "$($comp.ShortName)|$matchClean"
+            
+            # Aggiorna o aggiunge nel master dictionary (preserva lo storico)
+            $masterMatches[$key] = [PSCustomObject]@{
+                Competizione = $comp.ShortName
                 PlannedStartDate = $dtStart.ToString("dd/MM/yyyy HH:mm")
                 PlannedEndDate = $dtEnd.ToString("dd/MM/yyyy HH:mm")
-                Competizione = $comp.ShortName
                 Partita = $matchClean
                 Emittente = $emittente
-                Stato_Programmazione = if ($hour -eq 1 -or $hour -eq 0) { "Orario da definire" } else { "Confermato" }
+                Stato_Programmazione = $stato
                 SortDate = $dtStart
-            })
+            }
+            $scrapedCount++
         }
     }
 }
 
-# Ordinamento cronologico
-$sorted = $allMatches | Sort-Object SortDate
+# 3. Ordinamento cronologico complessivo
+$sorted = $masterMatches.Values | Sort-Object SortDate
 
-# Costruzione righe CSV
+# 4. Generazione righe CSV con delimitatore "," e Competizione per prima colonna
 $csvLines = [System.Collections.Generic.List[string]]::new()
-$csvLines.Add("Planned Start Date;Planned End Date;Competizione;Partita;Emittente;Stato_Programmazione")
+$csvLines.Add("Competizione,Planned Start Date,Planned End Date,Partita,Emittente,Stato_Programmazione")
 
 foreach ($m in $sorted) {
+    $comp = '"' + $m.Competizione.Replace('"', '""') + '"'
     $partita = '"' + $m.Partita.Replace('"', '""') + '"'
     $emittente = '"' + $m.Emittente.Replace('"', '""') + '"'
-    $line = "$($m.PlannedStartDate);$($m.PlannedEndDate);$($m.Competizione);$partita;$emittente;$($m.Stato_Programmazione)"
+    $stato = '"' + $m.Stato_Programmazione.Replace('"', '""') + '"'
+    
+    $line = "$comp,$($m.PlannedStartDate),$($m.PlannedEndDate),$partita,$emittente,$stato"
     $csvLines.Add($line)
 }
 
-# Salvataggio file con codifica UTF-8 BOM per compatibilità Excel
-$baseDir = if ($PSScriptRoot) { $PSScriptRoot } else { Get-Location }
-$csvPath = Join-Path $baseDir "calendario_partite.csv"
+# 5. Salvataggio con UTF-8 BOM
 $utf8Bom = New-Object System.Text.UTF8Encoding($true)
 [System.IO.File]::WriteAllLines($csvPath, $csvLines, $utf8Bom)
 
 Write-Host "Aggiornamento completato con successo!" -ForegroundColor Green
+Write-Host "Partite scaricate in questo ciclo: $scrapedCount"
+Write-Host "Totale partite mantenute (incluso storico): $($sorted.Count)"
 Write-Host "File salvato in: $csvPath"
-Write-Host "Totale partite esportate: $($sorted.Count)"

@@ -18,3 +18,4 @@ Puoi collegare questo file direttamente ad Excel per visualizzarlo sempre aggior
 
 Da questo momento, ogni volta che apri la cartella di lavoro Excel o clicchi su **Dati -> Aggiorna tutti**, Excel scaricherà l'ultima versione aggiornata da GitHub.
 
+
