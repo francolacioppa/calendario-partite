@@ -12,8 +12,9 @@ Puoi collegare questo file direttamente ad Excel per visualizzarlo sempre aggior
 1. Apri **Microsoft Excel**.
 2. Vai nella scheda **Dati** -> **Da Web** (o *Recupera dati* -> *Da altre origini* -> *Da Web*).
 3. Incolla l'URL Raw del file CSV:
-   `https://raw.githubusercontent.com/<TUO-USERNAME>/calendario-partite/main/calendario_partite.csv`
+   `https://raw.githubusercontent.com/francolacioppa/calendario-partite/main/calendario_partite.csv`
 4. Seleziona il delimitatore **Punto e virgola** (`;`) e la codifica **65001: Unicode (UTF-8)**.
 5. Clicca su **Carica**.
 
 Da questo momento, ogni volta che apri la cartella di lavoro Excel o clicchi su **Dati -> Aggiorna tutti**, Excel scaricherà l'ultima versione aggiornata da GitHub.
+
