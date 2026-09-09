@@ -1,7 +1,8 @@
 ﻿# ==============================================================================
 # Script per aggiornare il calendario partite (Serie A, UCL, UEL) con emittenti TV
+# Formato output personalizzato:
+# Number,Planned Start Date,Planned End Date,Short Description,State,Type,Impatto,Note
 # Mantiene lo storico delle partite passate e unisce i nuovi aggiornamenti
-# Output CSV: Delimitatore ",", Competizione come prima colonna, UTF-8 BOM
 # ==============================================================================
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -21,29 +22,33 @@ if (Test-Path $csvPath) {
         $existing = Import-Csv -Path $csvPath -Delimiter $del -Encoding UTF8
         
         foreach ($row in $existing) {
-            $comp = $row.Competizione
-            $match = $row.Partita
+            # Compatibilità con sia vecchio che nuovo schema
+            $comp = if ($row.Number) { $row.Number } else { $row.Competizione }
+            $match = if ($row.'Short Description') { $row.'Short Description' } else { $row.Partita }
             $start = $row.'Planned Start Date'
             $end = $row.'Planned End Date'
-            $emittente = $row.Emittente
-            $stato = $row.Stato_Programmazione
+            $emittente = if ($row.Note) { $row.Note } else { $row.Emittente }
+            $state = if ($row.State) { $row.State } else { "" }
+            $type = if ($row.Type) { $row.Type } else { "" }
+            $impatto = if ($row.Impatto) { $row.Impatto } else { "" }
             
             if ($comp -and $match) {
                 $key = "$comp|$match"
                 
-                # Parse datetime per ordinamento
                 $dtSort = [datetime]::MinValue
                 if ($start -and [datetime]::TryParseExact($start, "dd/MM/yyyy HH:mm", [System.Globalization.CultureInfo]::InvariantCulture, [System.Globalization.DateTimeStyles]::None, [ref]$dtSort)) {
                     # Parsed successfully
                 }
                 
                 $masterMatches[$key] = [PSCustomObject]@{
-                    Competizione = $comp
+                    Number = $comp
                     PlannedStartDate = $start
                     PlannedEndDate = $end
-                    Partita = $match
-                    Emittente = $emittente
-                    Stato_Programmazione = $stato
+                    ShortDescription = $match
+                    State = $state
+                    Type = $type
+                    Impatto = $impatto
+                    Note = $emittente
                     SortDate = $dtSort
                 }
             }
@@ -122,17 +127,23 @@ foreach ($comp in $competitions) {
                 }
             }
             
-            $stato = if ($hour -eq 1 -or $hour -eq 0) { "Orario da definire" } else { "Confermato" }
             $key = "$($comp.ShortName)|$matchClean"
             
-            # Aggiorna o aggiunge nel master dictionary (preserva lo storico)
+            # Preserva eventuali campi già popolati nello storico
+            $existingState = if ($masterMatches.ContainsKey($key)) { $masterMatches[$key].State } else { "" }
+            $existingType = if ($masterMatches.ContainsKey($key)) { $masterMatches[$key].Type } else { "" }
+            $existingImpatto = if ($masterMatches.ContainsKey($key)) { $masterMatches[$key].Impatto } else { "" }
+            
+            # Aggiorna o aggiunge nel master dictionary
             $masterMatches[$key] = [PSCustomObject]@{
-                Competizione = $comp.ShortName
+                Number = $comp.ShortName
                 PlannedStartDate = $dtStart.ToString("dd/MM/yyyy HH:mm")
                 PlannedEndDate = $dtEnd.ToString("dd/MM/yyyy HH:mm")
-                Partita = $matchClean
-                Emittente = $emittente
-                Stato_Programmazione = $stato
+                ShortDescription = $matchClean
+                State = $existingState
+                Type = $existingType
+                Impatto = $existingImpatto
+                Note = $emittente
                 SortDate = $dtStart
             }
             $scrapedCount++
@@ -143,17 +154,19 @@ foreach ($comp in $competitions) {
 # 3. Ordinamento cronologico complessivo
 $sorted = $masterMatches.Values | Sort-Object SortDate
 
-# 4. Generazione righe CSV con delimitatore "," e Competizione per prima colonna
+# 4. Generazione righe CSV secondo il nuovo schema
 $csvLines = [System.Collections.Generic.List[string]]::new()
-$csvLines.Add("Competizione,Planned Start Date,Planned End Date,Partita,Emittente,Stato_Programmazione")
+$csvLines.Add("Number,Planned Start Date,Planned End Date,Short Description,State,Type,Impatto,Note")
 
 foreach ($m in $sorted) {
-    $comp = '"' + $m.Competizione.Replace('"', '""') + '"'
-    $partita = '"' + $m.Partita.Replace('"', '""') + '"'
-    $emittente = '"' + $m.Emittente.Replace('"', '""') + '"'
-    $stato = '"' + $m.Stato_Programmazione.Replace('"', '""') + '"'
+    $num = '"' + $m.Number.Replace('"', '""') + '"'
+    $desc = '"' + $m.ShortDescription.Replace('"', '""') + '"'
+    $state = if ($m.State) { '"' + $m.State.Replace('"', '""') + '"' } else { "" }
+    $type = if ($m.Type) { '"' + $m.Type.Replace('"', '""') + '"' } else { "" }
+    $impatto = if ($m.Impatto) { '"' + $m.Impatto.Replace('"', '""') + '"' } else { "" }
+    $note = '"' + $m.Note.Replace('"', '""') + '"'
     
-    $line = "$comp,$($m.PlannedStartDate),$($m.PlannedEndDate),$partita,$emittente,$stato"
+    $line = "$num,$($m.PlannedStartDate),$($m.PlannedEndDate),$desc,$state,$type,$impatto,$note"
     $csvLines.Add($line)
 }
 
