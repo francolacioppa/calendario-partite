@@ -1,0 +1,38 @@
+﻿name: Aggiorna Calendario Partite
+
+on:
+  schedule:
+    # Esegue ogni mattina alle 06:00 UTC (08:00 ora italiana)
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-calendar:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Esegui aggiornamento calendario
+        shell: powershell
+        run: |
+          .\aggiorna_calendario.ps1
+
+      - name: Commit e push delle modifiche
+        shell: powershell
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add calendario_partite.csv
+          $status = git status --porcelain
+          if ($status) {
+              Write-Host "Modifiche rilevate, eseguo commit e push..."
+              git commit -m "Aggiornamento automatico calendario partite [skip ci]"
+              git push
+          } else {
+              Write-Host "Nessuna modifica rilevata nel calendario."
+          }
