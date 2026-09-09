@@ -21,24 +21,24 @@
 13/09/2026 15:00;13/09/2026 17:00;Serie A;"Lazio - Milan";"DAZN";Confermato
 13/09/2026 18:00;13/09/2026 20:00;Serie A;"Napoli - Bologna";"DAZN / SKY";Confermato
 14/09/2026 20:45;14/09/2026 22:45;Serie A;"Inter - Udinese";"DAZN / SKY";Confermato
-16/09/2026 18:45;16/09/2026 20:45;UEL;"Omonia Nicosia - Celta Vigo";"Sky";Confermato
 16/09/2026 18:45;16/09/2026 20:45;UEL;"Ararat-Armenia - Sparta Praga";"Sky";Confermato
-16/09/2026 21:00;16/09/2026 23:00;UEL;"Anderlecht - Olympique Lione";"Sky";Confermato
-16/09/2026 21:00;16/09/2026 23:00;UEL;"Sturm Graz - Rennes";"Sky";Confermato
+16/09/2026 18:45;16/09/2026 20:45;UEL;"Omonia Nicosia - Celta Vigo";"Sky";Confermato
 16/09/2026 21:00;16/09/2026 23:00;UEL;"Olympiacos - Jagiellonia Bialystok";"Sky";Confermato
-16/09/2026 21:00;16/09/2026 23:00;UEL;"Bayer Leverkusen - Celje";"Sky";Confermato
 16/09/2026 21:00;16/09/2026 23:00;UEL;"Sunderland - AZ Alkmaar";"Sky";Confermato
 16/09/2026 21:00;16/09/2026 23:00;UEL;"Milan - Benfica";"Sky";Confermato
+16/09/2026 21:00;16/09/2026 23:00;UEL;"Sturm Graz - Rennes";"Sky";Confermato
 16/09/2026 21:00;16/09/2026 23:00;UEL;"Hapoel Be'er Sheva - Dinamo Zagrabia";"Sky";Confermato
+16/09/2026 21:00;16/09/2026 23:00;UEL;"Bayer Leverkusen - Celje";"Sky";Confermato
+16/09/2026 21:00;16/09/2026 23:00;UEL;"Anderlecht - Olympique Lione";"Sky";Confermato
 17/09/2026 18:45;17/09/2026 20:45;UEL;"OFI Heraklion - Hoffenheim";"Sky";Confermato
 17/09/2026 18:45;17/09/2026 20:45;UEL;"Levski Sofia - Red Bull Salzburg";"Sky";Confermato
-17/09/2026 21:00;17/09/2026 23:00;UEL;"Real Sociedad - Bournemouth";"Sky";Confermato
-17/09/2026 21:00;17/09/2026 23:00;UEL;"Crystal Palace - Lech Poznan";"Sky";Confermato
-17/09/2026 21:00;17/09/2026 23:00;UEL;"Juventus - NEC Nijmegan";"Sky";Confermato
-17/09/2026 21:00;17/09/2026 23:00;UEL;"Viktoria Plzen - Saint-Gilloise";"Sky";Confermato
-17/09/2026 21:00;17/09/2026 23:00;UEL;"Lillestrom - Torreense";"Sky";Confermato
 17/09/2026 21:00;17/09/2026 23:00;UEL;"Celtic - Ferencvaros";"Sky";Confermato
 17/09/2026 21:00;17/09/2026 23:00;UEL;"Besiktas - Olympique Marsiglia";"Sky";Confermato
+17/09/2026 21:00;17/09/2026 23:00;UEL;"Crystal Palace - Lech Poznan";"Sky";Confermato
+17/09/2026 21:00;17/09/2026 23:00;UEL;"Juventus - NEC Nijmegan";"Sky";Confermato
+17/09/2026 21:00;17/09/2026 23:00;UEL;"Real Sociedad - Bournemouth";"Sky";Confermato
+17/09/2026 21:00;17/09/2026 23:00;UEL;"Viktoria Plzen - Saint-Gilloise";"Sky";Confermato
+17/09/2026 21:00;17/09/2026 23:00;UEL;"Lillestrom - Torreense";"Sky";Confermato
 18/09/2026 20:45;18/09/2026 22:45;Serie A;"Monza - Sassuolo";"DAZN / SKY";Confermato
 19/09/2026 15:00;19/09/2026 17:00;Serie A;"Bologna - Torino";"DAZN";Confermato
 19/09/2026 15:00;19/09/2026 17:00;Serie A;"Udinese - Cagliari";"DAZN";Confermato
@@ -77,24 +77,24 @@
 14/10/2026 21:00;14/10/2026 23:00;UCL;"Manchester City - Paris Saint-Germain";"Sky";Confermato
 14/10/2026 21:00;14/10/2026 23:00;UCL;"Bodo Glimt - Borussia Dortmund";"Sky";Confermato
 14/10/2026 21:00;14/10/2026 23:00;UCL;"Slovan Bratislava - Stoccarda";"Sky";Confermato
-15/10/2026 18:45;15/10/2026 20:45;UEL;"Saint-Gilloise - Real Sociedad";"Sky";Confermato
-15/10/2026 18:45;15/10/2026 20:45;UEL;"Torreense - Sunderland";"Sky";Confermato
-15/10/2026 18:45;15/10/2026 20:45;UEL;"Celje - Omonia Nicosia";"Sky";Confermato
 15/10/2026 18:45;15/10/2026 20:45;UEL;"Olympique Lione - Crystal Palace";"Sky";Confermato
-15/10/2026 18:45;15/10/2026 20:45;UEL;"AZ Alkmaar - Hapoel Be'er Sheva";"Sky";Confermato
 15/10/2026 18:45;15/10/2026 20:45;UEL;"Lech Poznan - Bayer Leverkusen";"Sky";Confermato
+15/10/2026 18:45;15/10/2026 20:45;UEL;"Torreense - Sunderland";"Sky";Confermato
+15/10/2026 18:45;15/10/2026 20:45;UEL;"AZ Alkmaar - Hapoel Be'er Sheva";"Sky";Confermato
 15/10/2026 18:45;15/10/2026 20:45;UEL;"Red Bull Salzburg - Milan";"Sky";Confermato
 15/10/2026 18:45;15/10/2026 20:45;UEL;"Sparta Praga - Lillestrom";"Sky";Confermato
-15/10/2026 21:00;15/10/2026 23:00;UEL;"NEC Nijmegan - Levski Sofia";"Sky";Confermato
-15/10/2026 21:00;15/10/2026 23:00;UEL;"Dinamo Zagrabia - Anderlecht";"Sky";Confermato
-15/10/2026 21:00;15/10/2026 23:00;UEL;"Jagiellonia Bialystok - Ararat-Armenia";"Sky";Confermato
-15/10/2026 21:00;15/10/2026 23:00;UEL;"Olympique Marsiglia  - Olympiacos";"Sky";Confermato
-15/10/2026 21:00;15/10/2026 23:00;UEL;"Hoffenheim - Besiktas";"Sky";Confermato
+15/10/2026 18:45;15/10/2026 20:45;UEL;"Saint-Gilloise - Real Sociedad";"Sky";Confermato
+15/10/2026 18:45;15/10/2026 20:45;UEL;"Celje - Omonia Nicosia";"Sky";Confermato
 15/10/2026 21:00;15/10/2026 23:00;UEL;"Ferencvaros - Viktoria Plzen";"Sky";Confermato
 15/10/2026 21:00;15/10/2026 23:00;UEL;"Benfica - Celtic";"Sky";Confermato
-15/10/2026 21:00;15/10/2026 23:00;UEL;"Bournemouth - Sturm Graz";"Sky";Confermato
-15/10/2026 21:00;15/10/2026 23:00;UEL;"Rennes - OFI Heraklion";"Sky";Confermato
+15/10/2026 21:00;15/10/2026 23:00;UEL;"Olympique Marsiglia  - Olympiacos";"Sky";Confermato
+15/10/2026 21:00;15/10/2026 23:00;UEL;"Hoffenheim - Besiktas";"Sky";Confermato
 15/10/2026 21:00;15/10/2026 23:00;UEL;"Celta Vigo - Juventus";"Sky";Confermato
+15/10/2026 21:00;15/10/2026 23:00;UEL;"Rennes - OFI Heraklion";"Sky";Confermato
+15/10/2026 21:00;15/10/2026 23:00;UEL;"Bournemouth - Sturm Graz";"Sky";Confermato
+15/10/2026 21:00;15/10/2026 23:00;UEL;"Jagiellonia Bialystok - Ararat-Armenia";"Sky";Confermato
+15/10/2026 21:00;15/10/2026 23:00;UEL;"Dinamo Zagrabia - Anderlecht";"Sky";Confermato
+15/10/2026 21:00;15/10/2026 23:00;UEL;"NEC Nijmegan - Levski Sofia";"Sky";Confermato
 18/10/2026 01:00;18/10/2026 03:00;Serie A;"Juventus - Lazio";"DAZN";Orario da definire
 18/10/2026 01:00;18/10/2026 03:00;Serie A;"Udinese - Lecce";"DAZN";Orario da definire
 18/10/2026 01:00;18/10/2026 03:00;Serie A;"Fiorentina - Como";"DAZN";Orario da definire
@@ -123,24 +123,24 @@
 21/10/2026 21:00;21/10/2026 23:00;UCL;"Real Madrid - RB Lipsia";"Sky";Confermato
 21/10/2026 21:00;21/10/2026 23:00;UCL;"Betis - Feyenoord";"Sky";Confermato
 21/10/2026 21:00;21/10/2026 23:00;UCL;"Bayern Monaco - Arsenal";"Sky";Confermato
-22/10/2026 18:45;22/10/2026 20:45;UEL;"OFI Heraklion - Bayer Leverkusen";"Sky";Confermato
-22/10/2026 18:45;22/10/2026 20:45;UEL;"Ferencvaros - Torreense";"Sky";Confermato
-22/10/2026 18:45;22/10/2026 20:45;UEL;"Juventus - Rennes";"Sky";Confermato
-22/10/2026 18:45;22/10/2026 20:45;UEL;"Ararat-Armenia - AZ Alkmaar";"Sky";Confermato
-22/10/2026 18:45;22/10/2026 20:45;UEL;"Sturm Graz - Olympique Marsiglia";"Sky";Confermato
-22/10/2026 18:45;22/10/2026 20:45;UEL;"Saint-Gilloise - Hapoel Be'er Sheva";"Sky";Confermato
-22/10/2026 18:45;22/10/2026 20:45;UEL;"Dinamo Zagrabia - NEC Nijmegan";"Sky";Confermato
 22/10/2026 18:45;22/10/2026 20:45;UEL;"Lech Poznan - Sunderland";"Sky";Confermato
-22/10/2026 21:00;22/10/2026 23:00;UEL;"Jagiellonia Bialystok - Anderlecht";"Sky";Confermato
-22/10/2026 21:00;22/10/2026 23:00;UEL;"Olympiacos - Sparta Praga";"Sky";Confermato
-22/10/2026 21:00;22/10/2026 23:00;UEL;"Celje - Red Bull Salzburg";"Sky";Confermato
-22/10/2026 21:00;22/10/2026 23:00;UEL;"Omonia Nicosia - Benfica";"Sky";Confermato
-22/10/2026 21:00;22/10/2026 23:00;UEL;"Bournemouth - Milan";"Sky";Confermato
-22/10/2026 21:00;22/10/2026 23:00;UEL;"Lillestrom - Real Sociedad";"Sky";Confermato
-22/10/2026 21:00;22/10/2026 23:00;UEL;"Hoffenheim - Olympique Lione";"Sky";Confermato
-22/10/2026 21:00;22/10/2026 23:00;UEL;"Viktoria Plzen - Levski Sofia";"Sky";Confermato
+22/10/2026 18:45;22/10/2026 20:45;UEL;"Sturm Graz - Olympique Marsiglia";"Sky";Confermato
+22/10/2026 18:45;22/10/2026 20:45;UEL;"Ferencvaros - Torreense";"Sky";Confermato
+22/10/2026 18:45;22/10/2026 20:45;UEL;"Dinamo Zagrabia - NEC Nijmegan";"Sky";Confermato
+22/10/2026 18:45;22/10/2026 20:45;UEL;"Ararat-Armenia - AZ Alkmaar";"Sky";Confermato
+22/10/2026 18:45;22/10/2026 20:45;UEL;"OFI Heraklion - Bayer Leverkusen";"Sky";Confermato
+22/10/2026 18:45;22/10/2026 20:45;UEL;"Saint-Gilloise - Hapoel Be'er Sheva";"Sky";Confermato
+22/10/2026 18:45;22/10/2026 20:45;UEL;"Juventus - Rennes";"Sky";Confermato
 22/10/2026 21:00;22/10/2026 23:00;UEL;"Celtic - Celta Vigo";"Sky";Confermato
+22/10/2026 21:00;22/10/2026 23:00;UEL;"Celje - Red Bull Salzburg";"Sky";Confermato
+22/10/2026 21:00;22/10/2026 23:00;UEL;"Lillestrom - Real Sociedad";"Sky";Confermato
+22/10/2026 21:00;22/10/2026 23:00;UEL;"Jagiellonia Bialystok - Anderlecht";"Sky";Confermato
+22/10/2026 21:00;22/10/2026 23:00;UEL;"Viktoria Plzen - Levski Sofia";"Sky";Confermato
+22/10/2026 21:00;22/10/2026 23:00;UEL;"Hoffenheim - Olympique Lione";"Sky";Confermato
+22/10/2026 21:00;22/10/2026 23:00;UEL;"Bournemouth - Milan";"Sky";Confermato
 22/10/2026 21:00;22/10/2026 23:00;UEL;"Besiktas - Crystal Palace";"Sky";Confermato
+22/10/2026 21:00;22/10/2026 23:00;UEL;"Olympiacos - Sparta Praga";"Sky";Confermato
+22/10/2026 21:00;22/10/2026 23:00;UEL;"Omonia Nicosia - Benfica";"Sky";Confermato
 25/10/2026 01:00;25/10/2026 03:00;Serie A;"Inter - Fiorentina";"DAZN";Orario da definire
 25/10/2026 01:00;25/10/2026 03:00;Serie A;"Como - Sassuolo";"DAZN";Orario da definire
 25/10/2026 01:00;25/10/2026 03:00;Serie A;"Napoli - Roma";"DAZN";Orario da definire
@@ -198,15 +198,15 @@
 05/11/2026 18:45;05/11/2026 20:45;UEL;"Lillestrom - Viktoria Plzen";"Sky";Confermato
 05/11/2026 18:45;05/11/2026 20:45;UEL;"Sparta Praga - Bournemouth";"Sky";Confermato
 05/11/2026 18:45;05/11/2026 20:45;UEL;"Rennes - Olympiacos";"Sky";Confermato
-05/11/2026 21:00;05/11/2026 23:00;UEL;"Sturm Graz - Celje";"Sky";Confermato
-05/11/2026 21:00;05/11/2026 23:00;UEL;"Celtic - Besiktas";"Sky";Confermato
-05/11/2026 21:00;05/11/2026 23:00;UEL;"Torreense - Ararat-Armenia";"Sky";Confermato
-05/11/2026 21:00;05/11/2026 23:00;UEL;"Bayer Leverkusen - Olympique Marsiglia";"Sky";Confermato
-05/11/2026 21:00;05/11/2026 23:00;UEL;"Benfica - Lech Poznan";"Sky";Confermato
-05/11/2026 21:00;05/11/2026 23:00;UEL;"Hapoel Be'er Sheva - OFI Heraklion";"Sky";Confermato
-05/11/2026 21:00;05/11/2026 23:00;UEL;"Celta Vigo - Saint-Gilloise";"Sky";Confermato
-05/11/2026 21:00;05/11/2026 23:00;UEL;"Sunderland - Dinamo Zagrabia";"Sky";Confermato
 05/11/2026 21:00;05/11/2026 23:00;UEL;"AZ Alkmaar - Juventus";"Sky";Confermato
+05/11/2026 21:00;05/11/2026 23:00;UEL;"Torreense - Ararat-Armenia";"Sky";Confermato
+05/11/2026 21:00;05/11/2026 23:00;UEL;"Celtic - Besiktas";"Sky";Confermato
+05/11/2026 21:00;05/11/2026 23:00;UEL;"Bayer Leverkusen - Olympique Marsiglia";"Sky";Confermato
+05/11/2026 21:00;05/11/2026 23:00;UEL;"Hapoel Be'er Sheva - OFI Heraklion";"Sky";Confermato
+05/11/2026 21:00;05/11/2026 23:00;UEL;"Benfica - Lech Poznan";"Sky";Confermato
+05/11/2026 21:00;05/11/2026 23:00;UEL;"Sunderland - Dinamo Zagrabia";"Sky";Confermato
+05/11/2026 21:00;05/11/2026 23:00;UEL;"Celta Vigo - Saint-Gilloise";"Sky";Confermato
+05/11/2026 21:00;05/11/2026 23:00;UEL;"Sturm Graz - Celje";"Sky";Confermato
 08/11/2026 01:00;08/11/2026 03:00;Serie A;"Venezia - Udinese";"DAZN";Orario da definire
 08/11/2026 01:00;08/11/2026 03:00;Serie A;"Genoa - Milan";"DAZN";Orario da definire
 08/11/2026 01:00;08/11/2026 03:00;Serie A;"Torino - Lecce";"DAZN";Orario da definire
@@ -245,24 +245,24 @@
 25/11/2026 21:00;25/11/2026 23:00;UCL;"Club Bruges - Liverpool";"Sky";Confermato
 25/11/2026 21:00;25/11/2026 23:00;UCL;"Paris Saint-Germain - Roma";"Amazon Prime Video";Confermato
 25/11/2026 21:00;25/11/2026 23:00;UCL;"Lille - Bayern Monaco";"Sky";Confermato
-26/11/2026 18:45;26/11/2026 20:45;UEL;"Celta Vigo - Bournemouth";"Sky";Confermato
 26/11/2026 18:45;26/11/2026 20:45;UEL;"Dinamo Zagrabia - Bayer Leverkusen";"Sky";Confermato
-26/11/2026 18:45;26/11/2026 20:45;UEL;"Besiktas - Hapoel Be'er Sheva";"Sky";Confermato
-26/11/2026 18:45;26/11/2026 20:45;UEL;"Saint-Gilloise - Lech Poznan";"Sky";Confermato
 26/11/2026 18:45;26/11/2026 20:45;UEL;"Red Bull Salzburg - Ararat-Armenia";"Sky";Confermato
-26/11/2026 18:45;26/11/2026 20:45;UEL;"Olympique Marsiglia  - Levski Sofia";"Sky";Confermato
-26/11/2026 18:45;26/11/2026 20:45;UEL;"Viktoria Plzen - Benfica";"Sky";Confermato
 26/11/2026 18:45;26/11/2026 20:45;UEL;"Olympiacos - Milan";"Sky";Confermato
-26/11/2026 21:00;26/11/2026 23:00;UEL;"Juventus - Omonia Nicosia";"Sky";Confermato
-26/11/2026 21:00;26/11/2026 23:00;UEL;"Crystal Palace - Real Sociedad";"Sky";Confermato
-26/11/2026 21:00;26/11/2026 23:00;UEL;"Sunderland - Jagiellonia Bialystok";"Sky";Confermato
+26/11/2026 18:45;26/11/2026 20:45;UEL;"Viktoria Plzen - Benfica";"Sky";Confermato
+26/11/2026 18:45;26/11/2026 20:45;UEL;"Saint-Gilloise - Lech Poznan";"Sky";Confermato
+26/11/2026 18:45;26/11/2026 20:45;UEL;"Besiktas - Hapoel Be'er Sheva";"Sky";Confermato
+26/11/2026 18:45;26/11/2026 20:45;UEL;"Olympique Marsiglia  - Levski Sofia";"Sky";Confermato
+26/11/2026 18:45;26/11/2026 20:45;UEL;"Celta Vigo - Bournemouth";"Sky";Confermato
 26/11/2026 21:00;26/11/2026 23:00;UEL;"Ferencvaros - Celje";"Sky";Confermato
+26/11/2026 21:00;26/11/2026 23:00;UEL;"Juventus - Omonia Nicosia";"Sky";Confermato
+26/11/2026 21:00;26/11/2026 23:00;UEL;"Sparta Praga - AZ Alkmaar";"Sky";Confermato
 26/11/2026 21:00;26/11/2026 23:00;UEL;"NEC Nijmegan - Rennes";"Sky";Confermato
+26/11/2026 21:00;26/11/2026 23:00;UEL;"Sunderland - Jagiellonia Bialystok";"Sky";Confermato
 26/11/2026 21:00;26/11/2026 23:00;UEL;"Hoffenheim - Sturm Graz";"Sky";Confermato
 26/11/2026 21:00;26/11/2026 23:00;UEL;"Torreense - Celtic";"Sky";Confermato
 26/11/2026 21:00;26/11/2026 23:00;UEL;"Olympique Lione - Lillestrom";"Sky";Confermato
-26/11/2026 21:00;26/11/2026 23:00;UEL;"Sparta Praga - AZ Alkmaar";"Sky";Confermato
 26/11/2026 21:00;26/11/2026 23:00;UEL;"OFI Heraklion - Anderlecht";"Sky";Confermato
+26/11/2026 21:00;26/11/2026 23:00;UEL;"Crystal Palace - Real Sociedad";"Sky";Confermato
 29/11/2026 01:00;29/11/2026 03:00;Serie A;"Lecce - Atalanta";"DAZN";Orario da definire
 29/11/2026 01:00;29/11/2026 03:00;Serie A;"Torino - Lazio";"DAZN";Orario da definire
 29/11/2026 01:00;29/11/2026 03:00;Serie A;"Roma - Monza";"DAZN";Orario da definire
@@ -301,24 +301,24 @@
 09/12/2026 21:00;09/12/2026 23:00;UCL;"PSV Eindhoven - Atlético Madrid";"Sky";Confermato
 09/12/2026 21:00;09/12/2026 23:00;UCL;"Lens - Bodo Glimt";"Sky";Confermato
 09/12/2026 21:00;09/12/2026 23:00;UCL;"Borussia Dortmund - Inter";"Amazon Prime Video";Confermato
-10/12/2026 18:45;10/12/2026 20:45;UEL;"Jagiellonia Bialystok - Crystal Palace";"Sky";Confermato
-10/12/2026 18:45;10/12/2026 20:45;UEL;"Rennes - Dinamo Zagrabia";"Sky";Confermato
-10/12/2026 18:45;10/12/2026 20:45;UEL;"AZ Alkmaar - Sturm Graz";"Sky";Confermato
 10/12/2026 18:45;10/12/2026 20:45;UEL;"Omonia Nicosia - Celtic";"Sky";Confermato
-10/12/2026 18:45;10/12/2026 20:45;UEL;"Ararat-Armenia - NEC Nijmegan";"Sky";Confermato
+10/12/2026 18:45;10/12/2026 20:45;UEL;"Jagiellonia Bialystok - Crystal Palace";"Sky";Confermato
 10/12/2026 18:45;10/12/2026 20:45;UEL;"Hapoel Be'er Sheva - Juventus";"Sky";Confermato
-10/12/2026 18:45;10/12/2026 20:45;UEL;"Anderlecht - Hoffenheim";"Sky";Confermato
+10/12/2026 18:45;10/12/2026 20:45;UEL;"AZ Alkmaar - Sturm Graz";"Sky";Confermato
 10/12/2026 18:45;10/12/2026 20:45;UEL;"Olympique Marsiglia  - Celta Vigo";"Sky";Confermato
-10/12/2026 21:00;10/12/2026 23:00;UEL;"Milan - Sunderland";"Sky";Confermato
-10/12/2026 21:00;10/12/2026 23:00;UEL;"Celje - Olympiacos";"Sky";Confermato
-10/12/2026 21:00;10/12/2026 23:00;UEL;"Bournemouth - Viktoria Plzen";"Sky";Confermato
-10/12/2026 21:00;10/12/2026 23:00;UEL;"Lech Poznan - Ferencvaros";"Sky";Confermato
-10/12/2026 21:00;10/12/2026 23:00;UEL;"Bayer Leverkusen - Besiktas";"Sky";Confermato
-10/12/2026 21:00;10/12/2026 23:00;UEL;"Olympique Lione - Saint-Gilloise";"Sky";Confermato
+10/12/2026 18:45;10/12/2026 20:45;UEL;"Ararat-Armenia - NEC Nijmegan";"Sky";Confermato
+10/12/2026 18:45;10/12/2026 20:45;UEL;"Rennes - Dinamo Zagrabia";"Sky";Confermato
+10/12/2026 18:45;10/12/2026 20:45;UEL;"Anderlecht - Hoffenheim";"Sky";Confermato
 10/12/2026 21:00;10/12/2026 23:00;UEL;"Red Bull Salzburg - Sparta Praga";"Sky";Confermato
-10/12/2026 21:00;10/12/2026 23:00;UEL;"Benfica - OFI Heraklion";"Sky";Confermato
-10/12/2026 21:00;10/12/2026 23:00;UEL;"Levski Sofia - Lillestrom";"Sky";Confermato
+10/12/2026 21:00;10/12/2026 23:00;UEL;"Lech Poznan - Ferencvaros";"Sky";Confermato
+10/12/2026 21:00;10/12/2026 23:00;UEL;"Olympique Lione - Saint-Gilloise";"Sky";Confermato
 10/12/2026 21:00;10/12/2026 23:00;UEL;"Real Sociedad - Torreense";"Sky";Confermato
+10/12/2026 21:00;10/12/2026 23:00;UEL;"Benfica - OFI Heraklion";"Sky";Confermato
+10/12/2026 21:00;10/12/2026 23:00;UEL;"Celje - Olympiacos";"Sky";Confermato
+10/12/2026 21:00;10/12/2026 23:00;UEL;"Levski Sofia - Lillestrom";"Sky";Confermato
+10/12/2026 21:00;10/12/2026 23:00;UEL;"Milan - Sunderland";"Sky";Confermato
+10/12/2026 21:00;10/12/2026 23:00;UEL;"Bayer Leverkusen - Besiktas";"Sky";Confermato
+10/12/2026 21:00;10/12/2026 23:00;UEL;"Bournemouth - Viktoria Plzen";"Sky";Confermato
 13/12/2026 01:00;13/12/2026 03:00;Serie A;"Como - Bologna";"DAZN";Orario da definire
 13/12/2026 01:00;13/12/2026 03:00;Serie A;"Atalanta - Genoa";"DAZN";Orario da definire
 13/12/2026 01:00;13/12/2026 03:00;Serie A;"Inter - Torino";"DAZN";Orario da definire
@@ -397,24 +397,24 @@
 20/01/2027 21:00;20/01/2027 23:00;UCL;"Lens - Manchester City";"Sky";Confermato
 20/01/2027 21:00;20/01/2027 23:00;UCL;"Sporting Lisboa - Barcellona";"Sky";Confermato
 20/01/2027 21:00;20/01/2027 23:00;UCL;"Betis - Arsenal";"Sky";Confermato
-21/01/2027 18:45;21/01/2027 20:45;UEL;"Ararat-Armenia - Celje";"Sky";Confermato
+21/01/2027 18:45;21/01/2027 20:45;UEL;"NEC Nijmegan - Benfica";"Sky";Confermato
+21/01/2027 18:45;21/01/2027 20:45;UEL;"Sturm Graz - OFI Heraklion";"Sky";Confermato
+21/01/2027 18:45;21/01/2027 20:45;UEL;"Jagiellonia Bialystok - Olympique Lione";"Sky";Confermato
+21/01/2027 18:45;21/01/2027 20:45;UEL;"Besiktas - Saint-Gilloise";"Sky";Confermato
 21/01/2027 18:45;21/01/2027 20:45;UEL;"Real Sociedad - Viktoria Plzen";"Sky";Confermato
 21/01/2027 18:45;21/01/2027 20:45;UEL;"Olympiacos - Hoffenheim";"Sky";Confermato
-21/01/2027 18:45;21/01/2027 20:45;UEL;"Lillestrom - Bournemouth";"Sky";Confermato
 21/01/2027 18:45;21/01/2027 20:45;UEL;"Ferencvaros - Juventus";"Sky";Confermato
-21/01/2027 18:45;21/01/2027 20:45;UEL;"Besiktas - Saint-Gilloise";"Sky";Confermato
-21/01/2027 18:45;21/01/2027 20:45;UEL;"Jagiellonia Bialystok - Olympique Lione";"Sky";Confermato
-21/01/2027 18:45;21/01/2027 20:45;UEL;"Sturm Graz - OFI Heraklion";"Sky";Confermato
-21/01/2027 18:45;21/01/2027 20:45;UEL;"NEC Nijmegan - Benfica";"Sky";Confermato
-21/01/2027 21:00;21/01/2027 23:00;UEL;"Hapoel Be'er Sheva - Celta Vigo";"Sky";Confermato
-21/01/2027 21:00;21/01/2027 23:00;UEL;"Rennes - Omonia Nicosia";"Sky";Confermato
-21/01/2027 21:00;21/01/2027 23:00;UEL;"AZ Alkmaar - Dinamo Zagrabia";"Sky";Confermato
-21/01/2027 21:00;21/01/2027 23:00;UEL;"Anderlecht - Sunderland";"Sky";Confermato
+21/01/2027 18:45;21/01/2027 20:45;UEL;"Ararat-Armenia - Celje";"Sky";Confermato
+21/01/2027 18:45;21/01/2027 20:45;UEL;"Lillestrom - Bournemouth";"Sky";Confermato
 21/01/2027 21:00;21/01/2027 23:00;UEL;"Celtic - Olympique Marsiglia";"Sky";Confermato
-21/01/2027 21:00;21/01/2027 23:00;UEL;"Levski Sofia - Milan";"Sky";Confermato
+21/01/2027 21:00;21/01/2027 23:00;UEL;"Anderlecht - Sunderland";"Sky";Confermato
 21/01/2027 21:00;21/01/2027 23:00;UEL;"Crystal Palace - Sparta Praga";"Sky";Confermato
-21/01/2027 21:00;21/01/2027 23:00;UEL;"Bayer Leverkusen - Red Bull Salzburg";"Sky";Confermato
+21/01/2027 21:00;21/01/2027 23:00;UEL;"Levski Sofia - Milan";"Sky";Confermato
 21/01/2027 21:00;21/01/2027 23:00;UEL;"Lech Poznan - Torreense";"Sky";Confermato
+21/01/2027 21:00;21/01/2027 23:00;UEL;"Rennes - Omonia Nicosia";"Sky";Confermato
+21/01/2027 21:00;21/01/2027 23:00;UEL;"Bayer Leverkusen - Red Bull Salzburg";"Sky";Confermato
+21/01/2027 21:00;21/01/2027 23:00;UEL;"AZ Alkmaar - Dinamo Zagrabia";"Sky";Confermato
+21/01/2027 21:00;21/01/2027 23:00;UEL;"Hapoel Be'er Sheva - Celta Vigo";"Sky";Confermato
 24/01/2027 01:00;24/01/2027 03:00;Serie A;"Bologna - Atalanta";"DAZN";Orario da definire
 24/01/2027 01:00;24/01/2027 03:00;Serie A;"Frosinone - Milan";"DAZN";Orario da definire
 24/01/2027 01:00;24/01/2027 03:00;Serie A;"Inter - Venezia";"DAZN";Orario da definire
@@ -443,24 +443,24 @@
 27/01/2027 21:00;27/01/2027 23:00;UCL;"Shaktar Donetsk - Real Madrid";"Sky";Confermato
 27/01/2027 21:00;27/01/2027 23:00;UCL;"Atlético Madrid - Fenerbahce";"Sky";Confermato
 27/01/2027 21:00;27/01/2027 23:00;UCL;"Borussia Dortmund - AEK Atene";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Bournemouth - Hapoel Be'er Sheva";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Sunderland - Levski Sofia";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Olympique Marsiglia  - Anderlecht";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Celje - NEC Nijmegan";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Torreense - Olympiacos";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Olympique Lione - Bayer Leverkusen";"Sky";Confermato
 28/01/2027 21:00;28/01/2027 23:00;UEL;"Benfica - AZ Alkmaar";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Celta Vigo - Lillestrom";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Milan - Ararat-Armenia";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Dinamo Zagrabia - Sturm Graz";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Omonia Nicosia - Besiktas";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Viktoria Plzen - Jagiellonia Bialystok";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Hoffenheim - Ferencvaros";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Red Bull Salzburg - Crystal Palace";"Sky";Confermato
 28/01/2027 21:00;28/01/2027 23:00;UEL;"Juventus - Real Sociedad";"Sky";Confermato
-28/01/2027 21:00;28/01/2027 23:00;UEL;"Saint-Gilloise - Celtic";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Celje - NEC Nijmegan";"Sky";Confermato
 28/01/2027 21:00;28/01/2027 23:00;UEL;"OFI Heraklion - Lech Poznan";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Red Bull Salzburg - Crystal Palace";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Olympique Marsiglia  - Anderlecht";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Celta Vigo - Lillestrom";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Torreense - Olympiacos";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Sunderland - Levski Sofia";"Sky";Confermato
 28/01/2027 21:00;28/01/2027 23:00;UEL;"Sparta Praga - Rennes";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Bournemouth - Hapoel Be'er Sheva";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Milan - Ararat-Armenia";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Viktoria Plzen - Jagiellonia Bialystok";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Omonia Nicosia - Besiktas";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Saint-Gilloise - Celtic";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Hoffenheim - Ferencvaros";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Dinamo Zagrabia - Sturm Graz";"Sky";Confermato
+28/01/2027 21:00;28/01/2027 23:00;UEL;"Olympique Lione - Bayer Leverkusen";"Sky";Confermato
 31/01/2027 01:00;31/01/2027 03:00;Serie A;"Sassuolo - Como";"DAZN";Orario da definire
 31/01/2027 01:00;31/01/2027 03:00;Serie A;"Udinese - Bologna";"DAZN";Orario da definire
 31/01/2027 01:00;31/01/2027 03:00;Serie A;"Atalanta - Fiorentina";"DAZN";Orario da definire
